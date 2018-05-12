@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        showMagicAlert()
+        showMagicAlert(nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,7 +27,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
 
-    func showMagicAlert() {
+    @IBAction func showMagicAlert(_ sender: Any?) {
         let magicAlert = UIAlertController(title: "The first how many numbers?", message: nil, preferredStyle: .alert)
         magicAlert.addTextField()
         let enterAction = UIAlertAction(title: "Go", style: .default) { (action) -> Void in
@@ -43,6 +43,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func getFibonacciNumbers(n: Int) {
+        tableViewArray = NSMutableArray()
         var n1 = 0
         var n2 = 1
         for _ in 2...n {
